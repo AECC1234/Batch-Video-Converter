@@ -8,7 +8,7 @@ dst = $(patsubst %.$(bef), ./converted/%.$(aft), $(src))
 
 all: $(dst)
 ./converted/%.$(aft): %.$(bef)
-	ffmpeg -i $< -c:v $(vcodec) -c:a $(acodec) -vf scale=$(resize) -ac 2 $@
+	ffmpeg -i $< -c:v $(vcodec) -c:a $(acodec) -vf scale=$(resize) -ac 2 -loglevel error $@
 
 .PHONY: clean
 clean:
