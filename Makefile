@@ -1,17 +1,25 @@
-bef = MP4	#The video format before converting
-aft = mkv	#The video format after converting
-vcodec = "libx264"	#Video Codec
-acodec = "aac"		#Audio Codec
-resize = "1920:1080"	#Resolution
+# Video Extension before Conversion
+bef = MP4
+# Video Extension after Conversion
+aft = mkv
+vcodec = "libx264"
+acodec = "aac"
+resize = "1920:1080"
+output_dir = "converted"
+vbitrate = "12000K"
+abitrate = "320K"
 src = $(wildcard *.$(bef))
-dst = $(patsubst %.$(bef), ./converted/%.$(aft), $(src))
-FFMPEG = ffmpeg		#The path to 'ffmpeg'
+dst = $(patsubst %.$(bef), ./$(output_dir)/%.$(aft), $(src))
+FFMPEG = ffmpeg
 
-all: $(dst)
-./converted/%.$(aft): %.$(bef)
-	$(FFMPEG) -i $< -c:v $(vcodec) -c:a $(acodec) -vf scale=$(resize) -ac 2 -loglevel error $@
+all: $(dst) $(output_dir)
+./$(output_dir)/%.$(aft): %.$(bef) $(output_dir)
+	$(FFMPEG) -i $< -c:v $(vcodec) -c:a $(acodec) -b:v $(vbitrate) -b:a $(abitrate) -vf scale=$(resize) -ac 2 -loglevel info $@
+./$(output_dir):
+	-mkdir $(output_dir)
 
 .PHONY: clean
 clean:
-	-rm -f ./converted/*.$(aft)
+	-rm -f ./$(output_dir)/*.$(aft)
+	-rm -rf ./$(output_dir)
 
