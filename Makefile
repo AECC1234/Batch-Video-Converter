@@ -1,6 +1,4 @@
-# Video Extension before Conversion
 bef = MP4
-# Video Extension after Conversion
 aft = mkv
 vcodec = "libx264"
 acodec = "aac"

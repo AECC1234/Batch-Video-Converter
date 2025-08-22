@@ -9,6 +9,9 @@ A Makefile-based batch video converter that uses ffmpeg to convert all video fil
     - `bef`: The input file extension (e.g., mp4, mkv).
     - `aft`: The output file extension (e.g., mp4, mkv).
     - `resize`: Set the resolution for the output videos (e.g., 1280:720, 1920:1080).
+    - `output_dir`: The directory where the converted videos will be saved.
+    - `vbitrate`: The video bitrate for the output videos (e.g., 1000k, 2000k).
+    - `abitrate`: The audio bitrate for the output videos (e.g., 128k, 256k).
 3. Run the following command in the terminal:
    ```bash
    make
