@@ -1,6 +1,6 @@
 # Batch Video Converter
 ## Introduction
-A Makefile-based batch video converter that uses ffmpeg to convert all video files to a specified format, and it can be used to process multiple videos parallelly. This project is designed to run on Linux systems.
+A Makefile-based batch video converter that uses ffmpeg to convert all video files to a specified format, and it can be used to process multiple videos parallelly. This project is designed to run on Linux and Windows systems.
 ## Usage
 1. You just need to upload your videos to the folder.  
 2. Modify the Makefile to set the necessary parameters. 
